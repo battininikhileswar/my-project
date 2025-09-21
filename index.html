@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mood-Based Music & Motivation</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <h1>Mood-Based Music & Motivation</h1>
+
+  <!-- AUTH BOX -->
+  <div id="authBox">
+    <div id="loginForm">
+      <h2>Login</h2>
+      <input type="text" id="loginUsername" placeholder="Username" />
+      <input type="password" id="loginPassword" placeholder="Password" />
+      <button onclick="login()">Login</button>
+      <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+    </div>
+
+    <div id="signupForm" style="display:none;">
+      <h2>Sign Up</h2>
+      <input type="text" id="signupUsername" placeholder="Choose a username" />
+      <input type="password" id="signupPassword" placeholder="Choose a password" />
+      <button onclick="signup()">Create account</button>
+      <p>Already have an account? <a href="#" onclick="showLogin()">Log in</a></p>
+    </div>
+  </div>
+
+  <!-- APP CONTENT (hidden until login) -->
+  <div id="app" style="display:none;">
+    <div id="topBar">
+      <div>Logged in as: <span id="currentUserLabel"></span></div>
+      <div>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+    <video id="video" width="640" height="480" autoplay muted></video>
+
+    <div class="controls">
+      <input type="text" id="searchBar" placeholder="Search music or video (e.g., happy)" />
+      <button onclick="searchContent()">Search</button>
+    </div>
+
+    <div id="quoteBox">Your quote will appear here</div>
+    <audio id="musicPlayer" controls></audio>
+    <div id="videoBox"></div>
+
+    <!-- History panel -->
+    <div id="historyPanel">
+      <h3>Activity History</h3>
+      <div id="historyList">No history yet.</div>
+      <button onclick="clearHistory()">Clear History</button>
+    </div>
+  </div>
+</body>
+</html>
